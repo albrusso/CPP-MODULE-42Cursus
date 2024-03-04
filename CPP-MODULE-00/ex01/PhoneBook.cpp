@@ -6,7 +6,7 @@
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 23:27:55 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/04 00:44:44 by albrusso         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:27:09 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,59 +23,53 @@ PhoneBook::~PhoneBook(void)
 
 void	PhoneBook::add(void)
 {
-	int	full = 0;
 	std::string	s;
 
-	if (this->i == 7)
+	if (this->i >= 8)
+		std::cout << "Book is full! The contact will be overwritten instead of "<< this->book[(this->i % 8)].getFirstName() << " contact's"<< std::endl;
+	s = "";
+	while (!std::cin.eof() && s == "")
 	{
-		std::cout<<"Book is full! The contact will be overwritten instead of"<<this->book[0].getFirstName()<<std::endl;
-		full = 1;
+		std::cout << "Enter first name --> ";
+		if (std::getline(std::cin, s) && s != "")
+			this->book[(this->i % 8)].setFisrtName(s);
 	}
 	s = "";
-	while (std::cin.eof() && s == "")
+	while (!std::cin.eof() && s == "")
 	{
-		std::cout<<"Enter first name --> ";
+		std::cout << "Enter last name --> ";
 		if (std::getline(std::cin, s) && s != "")
-			this->book[i].setFisrtName(s);
+			this->book[(this->i % 8)].setLastName(s);
 	}
 	s = "";
-	while (std::cin.eof() && s == "")
+	while (!std::cin.eof() && s == "")
 	{
-		std::cout<<"Enter last name --> ";
+		std::cout << "Enter nickname --> ";
 		if (std::getline(std::cin, s) && s != "")
-			this->book[i].setLastName(s);
+			this->book[(this->i % 8)].setNickname(s);
 	}
 	s = "";
-	while (std::cin.eof() && s == "")
+	while (!std::cin.eof() && s == "")
 	{
-		std::cout<<"Enter nickname --> ";
+		std::cout << "Enter phone number --> ";
 		if (std::getline(std::cin, s) && s != "")
-			this->book[i].setNickname(s);
+			this->book[(this->i % 8)].setPhoneNumber(s);
 	}
 	s = "";
-	while (std::cin.eof() && s == "")
+	while (!std::cin.eof() && s == "")
 	{
-		std::cout<<"Enter phone number --> ";
+		std::cout << "Enter darkest secret --> ";
 		if (std::getline(std::cin, s) && s != "")
-			this->book[i].setPhoneNumber(s);
-	}
-	s = "";
-	while (std::cin.eof() && s == "")
-	{
-		std::cout<<"Enter darkest secret --> ";
-		if (std::getline(std::cin, s) && s != "")
-			this->book[i].setDarkestSecret(s);
+			this->book[(this->i % 8)].setDarkestSecret(s);
 	}
 	this->i++;
-	if (full == 1)
-		this->i = 0;
 }
 
 std::string	addSpace(int j)
 {
 	std::string tmp;
 
-	while (j)
+	while (j > 0)
 	{
 		tmp.append(" ");
 		j--;
@@ -93,49 +87,82 @@ std::string	editStr(std::string s)
 	return (s);
 }
 
+int	onlyDigit(std::string s)
+{
+	int	i = 0;
+
+	while (s[i])
+	{
+		if (!std::isdigit(s[i]))
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
 void	PhoneBook::search(void)
 {
 	int	n = 0;
 	std::string	s = "";
 
 	if (this->i == 0)
-		std::cout<<"Book is empty!"<<std::endl;
+		std::cout << "Book is empty!" << std::endl;
 	else
 	{
-		std::cout<<"     index|first name| last name|  nickname"<<std::endl;
-		while (n < this->i)
+		std::cout << "     index|first name| last name|  nickname" << std::endl;
+		while (n < 8)
 		{
-			s = addSpace(std::to_string(n).size() - 10);
+			if (this->i < 8 && n == this->i)
+				break ;
+			s = addSpace(10 - std::to_string(n).size());
 			s.append(std::to_string(n));
-			std::cout<<s<<"|";
-			s = addSpace(this->book[n].getFirstName().size() - 10);
+			s = editStr(s);
+			std::cout << s << "|";
+			s = "";
+			s = addSpace(10 - this->book[n].getFirstName().size());
 			s.append(this->book[n].getFirstName());
-			std::cout<<s<<"|";
+			s = editStr(s);
+			std::cout << s << "|";
 			s = "";
-			s = addSpace(this->book[n].getLastName().size() - 10);
+			s = addSpace(10 - this->book[n].getLastName().size());
 			s.append(this->book[n].getLastName());
-			std::cout<<s<<"|";
+			s = editStr(s);
+			std::cout << s << "|";
 			s = "";
-			s = addSpace(this->book[n].getNickname().size() - 10);
+			s = addSpace(10 - this->book[n].getNickname().size());
 			s.append(this->book[n].getNickname());
-			std::cout<<s<<std::endl;
+			s = editStr(s);
+			std::cout << s << std::endl;
 			s = "";
 			n++;
 		}
-		while (std::cin.eof() && s == "")
+		while (!std::cin.eof() && s == "")
 		{
-			std::cout<<"Select an index --> ";
+			std::cout<< "Select an index --> ";
 			std::getline(std::cin, s);
-			if (s[0] >= '0' && s[0] <= '7')
+			if (onlyDigit(s))
+			{
+				std::cout<< "Accepts only digits, retry"<< std::endl;
+				s = "";
+			}
+			else if (std::stol(s) >= 0 && std::stol(s) <= 7)
 				break;
 			else
-				std::cout<<"Wrong index, retry"<<std::endl;
+			{
+				std::cout << "Wrong index, retry" << std::endl;
+				s = "";
+			}
 		}
-		std::cout << "First Name --> "<<this->book[std::stol(s)].getFirstName() << std::endl;
-		std::cout << "Last Name --> " << this->book[std::stol(s)].getLastName() << std::endl;
-		std::cout << "Nickname --> " << this->book[std::stol(s)].getNickname() << std::endl;
-		std::cout << "Phone Number --> " << this->book[std::stol(s)].getPhoneNumber() << std::endl;
-		std::cout << "Darkest Secret --> " << this->book[std::stol(s)].getDarkestSecret() << std::endl;
+		if (this->book[std::stol(s)].getFirstName().size())
+		{
+			std::cout << "First Name --> " << this->book[std::stol(s)].getFirstName() << std::endl;
+			std::cout << "Last Name --> " << this->book[std::stol(s)].getLastName() << std::endl;
+			std::cout << "Nickname --> " << this->book[std::stol(s)].getNickname() << std::endl;
+			std::cout << "Phone Number --> " << this->book[std::stol(s)].getPhoneNumber() << std::endl;
+			std::cout << "Darkest Secret --> " << this->book[std::stol(s)].getDarkestSecret() << std::endl;
+		}
+		else
+			std::cout << "This contact don't exist!" << std::endl;
 	}
 }
 

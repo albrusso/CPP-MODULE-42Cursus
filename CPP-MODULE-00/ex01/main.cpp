@@ -6,7 +6,7 @@
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 23:59:09 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/04 00:46:33 by albrusso         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:24:41 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	main(void)
 	PhoneBook	phone;
 	std::string	str = "";
 
-	std::cout<<"Welcome! My memory isn't that much, only 8 contacts"<<std::endl;
+	std::cout << "Welcome! My memory isn't that much, only 8 contacts" << std::endl;
 	while (str != "EXIT")
 	{
-		std::cout<<"Enter one command (ADD or SEARCH or type 'EXIT' to exit) --> ";
+		std::cout << "Enter one command (ADD or SEARCH or type 'EXIT' to exit) --> ";
 		std::getline(std::cin, str);
 		if (str == "ADD")
 			phone.add();
@@ -29,10 +29,10 @@ int	main(void)
 		else
 		{
 			if (str != "EXIT")
-				std::cout<<"Wrong command, retry"<<std::endl;
+				std::cout << "Wrong command, retry" << std::endl;
 		}
 	}
-	std::cout<<"Good by!"<<std::endl;
+	std::cout << "Good by!" << std::endl;
 	phone.~PhoneBook();
 	return (0);
 }
