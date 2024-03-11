@@ -5,18 +5,16 @@
 #                                                     +:+ +:+         +:+      #
 #    By: albrusso <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/05 13:37:56 by albrusso          #+#    #+#              #
-#    Updated: 2024/03/11 12:54:22 by albrusso         ###   ########.fr        #
+#    Created: 2024/03/11 13:02:41 by albrusso          #+#    #+#              #
+#    Updated: 2024/03/11 13:03:06 by albrusso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	zombie01
+NAME		=	zombie02
 CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror  -std=c++98
 RM			=	rm -f
-SRC			=	main.cpp \
-				Zombie.cpp \
-				zombieHorde.cpp
+SRC			=	main.cpp
 OBJ			=	$(SRC:.cpp=.o)
 
 all:		$(NAME)

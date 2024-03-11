@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 13:38:04 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/11 12:48:04 by albrusso         ###   ########.fr       */
+/*   Created: 2024/03/11 13:02:43 by albrusso          #+#    #+#             */
+/*   Updated: 2024/03/11 13:06:44 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-Zombie	*newZombie(std::string name);
-
-void	randomChump(std::string name);
-
-int	main(void)
+int main(void)
 {
-	Zombie	*z;
 
-	z = newZombie("Zombie 1");
-	z->announce();
-	randomChump("Zombie 2");
-	delete z;
+	std::string	str = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &str;
+	std::string	stringREF = *str;
+	return (0);
 }

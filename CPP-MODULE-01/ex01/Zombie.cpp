@@ -6,15 +6,19 @@
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 13:38:54 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/05 14:03:00 by albrusso         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:52:03 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string str)
+void	Zombie::setName(std::string str)
 {
 	this->name = str;
+}
+
+Zombie::Zombie(void)
+{
 }
 
 Zombie::~Zombie()
