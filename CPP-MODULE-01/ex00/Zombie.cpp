@@ -6,7 +6,7 @@
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 13:38:54 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/11 15:48:26 by albrusso         ###   ########.fr       */
+/*   Updated: 2024/03/12 10:45:46 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ Zombie::Zombie(void)
 {
 }
 
-Zombie::Zombie(std::string s)
+Zombie::Zombie(std::string _s)
 {
-	this->_name = s;
+	this->_name = _s;
 }
 
 Zombie::~Zombie()

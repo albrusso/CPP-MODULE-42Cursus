@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 13:02:43 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/11 13:06:44 by albrusso         ###   ########.fr       */
+/*   Updated: 2024/03/12 10:43:49 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,15 @@
 int main(void)
 {
 
-	std::string	str = "HI THIS IS BRAIN";
-	std::string	*stringPTR = &str;
-	std::string	stringREF = *str;
+	std::string	string = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &string;
+	std::string	&stringREF = string;
+
+	std::cout << "string memory address:	" << &string << std::endl;
+	std::cout << "stringPTR memory address:	" << stringPTR << std::endl;
+	std::cout << "stringREF memory address:	" << &stringREF << std::endl;
+	std::cout << "string content:		" << string << std::endl;
+	std::cout << "stringPTR content:	" << *stringPTR << std::endl;
+	std::cout << "stringREF content:	" << stringREF << std::endl;
 	return (0);
 }

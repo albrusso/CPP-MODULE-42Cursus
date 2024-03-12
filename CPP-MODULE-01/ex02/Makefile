@@ -6,11 +6,11 @@
 #    By: albrusso <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/11 13:02:41 by albrusso          #+#    #+#              #
-#    Updated: 2024/03/11 13:03:06 by albrusso         ###   ########.fr        #
+#    Updated: 2024/03/12 10:44:46 by albrusso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	zombie02
+NAME		=	strPtrRef
 CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror  -std=c++98
 RM			=	rm -f
