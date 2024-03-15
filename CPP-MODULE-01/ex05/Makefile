@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: albrusso <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/05 13:37:56 by albrusso          #+#    #+#              #
-#    Updated: 2024/03/15 15:36:45 by albrusso         ###   ########.fr        #
+#    Created: 2024/03/15 14:23:19 by albrusso          #+#    #+#              #
+#    Updated: 2024/03/15 15:58:59 by albrusso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ GREEN=\033[1;32m
 WHITE=\033[1;37m
 RESET=\033[0m
 
-NAME = zombieHorde
+NAME = strReplace
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
-SRC = main.cpp Zombie.cpp zombieHorde.cpp
+SRC = main.cpp Harl.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 13:38:17 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/15 15:39:03 by albrusso         ###   ########.fr       */
+/*   Created: 2024/03/15 14:23:40 by albrusso          #+#    #+#             */
+/*   Updated: 2024/03/15 14:47:50 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 
-# include <iostream>
+#include <iostream>
+#include <map>
 
 #define COLOR_RED     "\033[1;31m"
 #define COLOR_ORANGE  "\033[1;38;5;208m"
@@ -22,14 +23,16 @@
 #define COLOR_WHITE   "\033[1;37m"
 #define COLOR_RESET   "\033[0m"
 
-class Zombie {
+class Harl {
 private:
-	std::string name;
+	void debug();
+	void info();
+	void warning();
+	void error();
 public:
-	Zombie(void);
-	~Zombie(void);
-	void announce(void);
-	void setName(std::string name);
+	Harl();
+	~Harl();
+	void complain(std::string level);
 };
 
 #endif

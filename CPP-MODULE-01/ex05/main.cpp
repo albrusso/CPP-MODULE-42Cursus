@@ -1,17 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/05 13:38:51 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/15 12:53:27 by albrusso         ###   ########.fr       */
+/*   Created: 2024/03/15 14:43:52 by albrusso          #+#    #+#             */
+/*   Updated: 2024/03/15 14:47:07 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-Zombie *newZombie(std::string name) {
-	return new Zombie(name);
+int main() {
+    Harl harl;
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
+	harl.complain("LEAKS");
+	return 0;
 }
