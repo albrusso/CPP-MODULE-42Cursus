@@ -6,7 +6,7 @@
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:25:32 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/15 14:48:32 by albrusso         ###   ########.fr       */
+/*   Updated: 2024/03/19 11:17:23 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ Harl::~Harl() {
 }
 
 void Harl::debug() {
-	std::cout << COLOR_BLUE << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << COLOR_RESET << std::endl;
+	std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
 }
 
 void Harl::info(void) {
-	std::cout << COLOR_YELLOW << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << COLOR_RESET << std::endl;
+	std::cout << "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!" << std::endl;
 }
 
 void Harl::warning(void) {
-	std::cout << COLOR_ORANGE << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << COLOR_RESET << std::endl;
+	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month." << std::endl;
 }
 
 void Harl::error(void) {
-	std::cout << COLOR_RED << "This is unacceptable! I want to speak to the manager now." << COLOR_RESET << std::endl;
+	std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 }
 
 typedef void (Harl::*ptrFunc)(void);
@@ -46,5 +46,5 @@ void Harl::complain(std::string level) {
 	if (harlMap.find(level) != harlMap.end())
 		(this->*harlMap[level])();
 	else
-		std::cout << COLOR_WHITE << "Level not found" << COLOR_RESET << std::endl;
+		std::cout << "Level not found" << std::endl;
 }

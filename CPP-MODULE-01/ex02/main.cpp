@@ -6,7 +6,7 @@
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 13:02:43 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/15 15:44:51 by albrusso         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:29:10 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ int main(void)
 	std::string *stringPTR = &string;
 	std::string &stringREF = string;
 
-	std::cout << COLOR_GRAY <<"string memory address: " << &string << COLOR_RESET << std::endl;
-	std::cout << COLOR_GRAY <<"stringPTR memory address: " << stringPTR << COLOR_RESET << std::endl;
-	std::cout << COLOR_GRAY <<"stringREF memory address: " << &stringREF << COLOR_RESET << std::endl;
-	std::cout << COLOR_WHITE <<"string content: " << string << COLOR_RESET << std::endl;
-	std::cout << COLOR_WHITE <<"stringPTR content: " << *stringPTR << COLOR_RESET << std::endl;
-	std::cout << COLOR_WHITE <<"stringREF content: " << stringREF << COLOR_RESET << std::endl;
+	std::cout <<"string memory address: " << &string << std::endl;
+	std::cout <<"stringPTR memory address: " << stringPTR << std::endl;
+	std::cout <<"stringREF memory address: " << &stringREF << std::endl;
+	std::cout <<"string content: " << string << std::endl;
+	std::cout <<"stringPTR content: " << *stringPTR << std::endl;
+	std::cout <<"stringREF content: " << stringREF << std::endl;
 	return 0;
 }

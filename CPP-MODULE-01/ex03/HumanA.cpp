@@ -6,7 +6,7 @@
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/12 12:39:29 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/15 15:49:32 by albrusso         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:31:06 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,5 @@ HumanA::~HumanA(void) {
 }
 
 void HumanA::attack(void) const {
-	std::cout << COLOR_YELLOW << this->name << COLOR_WHITE << " attacks with their " << COLOR_RED << this->weapon.getType() << COLOR_RESET << std::endl;
+	std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
 }

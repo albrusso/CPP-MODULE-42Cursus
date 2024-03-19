@@ -6,28 +6,71 @@
 #    By: albrusso <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/01 10:57:42 by albrusso          #+#    #+#              #
-#    Updated: 2024/03/01 11:01:43 by albrusso         ###   ########.fr        #
+#    Updated: 2024/03/19 12:19:13 by albrusso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	megaphone
-CC			=	c++
-CFLAGS		=	-Wall -Wextra -Werror  -std=c++98
-RM			=	rm -f
-SRC			=	megaphone.cpp
-OBJ			=	$(SRC:.cpp=.o)
+################################################################################
+#                                  CONFIG                                      #
+################################################################################
 
-all:		$(NAME)
+NAME	=	megaphone
+CC		=	c++
+CFLAGS	=	-Wall -Wextra
+OBJ_DIR	=	.obj
+SIZE	=	30
 
-$(NAME):	$(OBJ)
-			$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+################################################################################
+#                                  COLORS                                      #
+################################################################################
+
+RED		=	\033[1;31m
+YELLOW	=	\033[1;33m
+BLUE	=	\033[1;34m
+GREEN	=	\033[1;32m
+WHITE	=	\033[1;37m
+DEFAULT	=	\033[0m
+
+################################################################################
+#                                   FILES                                      #
+################################################################################
+
+SRC		=	megaphone.cpp
+
+OBJ		=	$(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
+
+################################################################################
+#                                   MAKE                                       #
+################################################################################
+
+all:	$(NAME)
+$(NAME): $(OBJ)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+
+$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
+	@printf "$(WHITE)%s$(BLUE)%-$(SIZE)s$(GREEN)%s$(DEFAULT)\n" "Compiling... " "$<" "[OK]"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
 
 clean:
-			$(RM) $(OBJ)
+	@for file in $(OBJ); do \
+		printf "$(WHITE)%s$(YELLOW)%-$(SIZE)s$(GREEN)%s$(DEFAULT)\n" "Removing...  " "$$file" "[OK]"; \
+	done
+	@rm -f $(OBJ)
+	@rm -rf $(OBJ_DIR)
 
-fclean:		clean
-			$(RM) $(NAME)
+fclean: clean
+	@printf "$(WHITE)%s$(RED)%-$(SIZE)s$(GREEN)%s$(DEFAULT)\n" "Removing...  " "$(NAME)" "[OK]"
+	@rm -f $(NAME)
 
-re:			fclean all
+re: fclean all
 
-.PHONY:		all clean fclean re
+run: $(NAME)
+	./$(NAME) file "ciao" "hello"
+
+mem: $(NAME)
+		valgrind --leak-check=full ./$(NAME) file "ciao" "hello"
+
+.PHONY: all clean fclean re run mem
