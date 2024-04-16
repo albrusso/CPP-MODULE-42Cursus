@@ -6,7 +6,7 @@
 #    By: albrusso <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/12 12:44:58 by albrusso          #+#    #+#              #
-#    Updated: 2024/03/19 11:30:23 by albrusso         ###   ########.fr        #
+#    Updated: 2024/04/16 17:12:02 by albrusso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 NAME	=	humanWar
 CC		=	c++
-CFLAGS	=	-Wall -Wextra
+CFLAGS	=	-Wall -Wextra -Werror
 OBJ_DIR	=	.obj
 SIZE	=	30
 

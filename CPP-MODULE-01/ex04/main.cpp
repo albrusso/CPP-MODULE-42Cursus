@@ -6,7 +6,7 @@
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 13:16:08 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/15 15:57:55 by albrusso         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:14:39 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@
 
 int main(int ac, char **av) {
 	if (ac != 4) {
-		std::cout << COLOR_YELLOW << "To run try like: <./strReplace> <filename> <s1> <s2> (of course, without the angle brackets)" << COLOR_RESET << std::endl;
+		std::cout << "To run try like: <./strReplace> <filename> <s1> <s2> (of course, without the angle brackets)" << std::endl;
 		return 0;
 	}
 	std::fstream fd1(av[1]);
 	if (!fd1.is_open())
 	{
-		std::cout << COLOR_RED << "Error opening the file named " << COLOR_WHITE << av[1] << COLOR_RESET << std::endl;
+		std::cout << "Error opening the file named " << av[1] << std::endl;
 		return 1;
 	}
 	std::string fileContent = "";
@@ -43,7 +43,7 @@ int main(int ac, char **av) {
 	std::ofstream fd2(tmp.c_str());
 	if (!fd2.is_open())
 	{
-		std::cout << COLOR_RED << "Error opening the file named " << COLOR_WHITE << tmp << COLOR_RESET << std::endl;
+		std::cout << "Error opening the file named " << tmp << std::endl;
 		return 1;
 	}
 	size_t pos = 0;

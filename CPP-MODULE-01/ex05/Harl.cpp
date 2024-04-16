@@ -6,7 +6,7 @@
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/15 14:25:32 by albrusso          #+#    #+#             */
-/*   Updated: 2024/03/19 11:17:23 by albrusso         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:09:21 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,15 @@ void Harl::error(void) {
 typedef void (Harl::*ptrFunc)(void);
 
 void Harl::complain(std::string level) {
-	std::map<std::string, ptrFunc> harlMap;
-	harlMap["DEBUG"] = &Harl::debug;
-	harlMap["INFO"] = &Harl::info;
-	harlMap["WARNING"] = &Harl::warning;
-	harlMap["ERROR"] = &Harl::error;
+	void		(Harl::*ptr_func[4])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	std::string	arr[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-	if (harlMap.find(level) != harlMap.end())
-		(this->*harlMap[level])();
-	else
-		std::cout << "Level not found" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (arr[i] == level)
+		{
+			(this->*ptr_func[i])();
+			break ;
+		}
+	}
 }
