@@ -6,7 +6,7 @@
 #    By: albrusso <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/05 13:37:56 by albrusso          #+#    #+#              #
-#    Updated: 2024/04/16 17:11:49 by albrusso         ###   ########.fr        #
+#    Updated: 2024/04/17 16:42:14 by albrusso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 NAME	=	zombieHorde
 CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 OBJ_DIR	=	.obj
 SIZE	=	30
 

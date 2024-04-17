@@ -6,7 +6,7 @@
 #    By: albrusso <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/15 13:15:27 by albrusso          #+#    #+#              #
-#    Updated: 2024/04/16 17:12:08 by albrusso         ###   ########.fr        #
+#    Updated: 2024/04/17 16:42:16 by albrusso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@
 
 NAME	=	strReplace
 CC		=	c++
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 OBJ_DIR	=	.obj
 SIZE	=	30
 
