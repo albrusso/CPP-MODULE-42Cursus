@@ -6,12 +6,13 @@
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 13:16:11 by albrusso          #+#    #+#             */
-/*   Updated: 2024/04/18 13:57:01 by albrusso         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:54:07 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+//costructor && destructor
 Fixed::Fixed(void): _value(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
@@ -33,6 +34,7 @@ Fixed::~Fixed(void) {
 	std::cout << "Destructor called" << std::endl;
 }
 
+//copy assignement
 Fixed &Fixed::operator=(const Fixed &other) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
@@ -40,6 +42,72 @@ Fixed &Fixed::operator=(const Fixed &other) {
 	return *this;
 }
 
+//compare operator
+bool Fixed::operator<(const Fixed &other) {
+	return this->_value < other._value;
+}
+
+bool Fixed::operator>(const Fixed &other) {
+	return this->_value > other._value;
+}
+
+bool Fixed::operator<=(const Fixed &other) {
+	return this->_value <= other._value;
+}
+
+bool Fixed::operator>=(const Fixed &other) {
+	return this->_value >= other._value;
+}
+
+bool Fixed::operator==(const Fixed &other) {
+	return this->_value == other._value;
+}
+
+bool Fixed::operator!=(const Fixed &other) {
+	return this->_value != other._value;
+}
+
+//math symbol
+Fixed Fixed::operator+(const Fixed &other) {
+	return Fixed(this->toFloat() + other.toFloat());
+}
+
+Fixed Fixed::operator-(const Fixed &other) {
+	return Fixed(this->toFloat() - other.toFloat());
+}
+
+Fixed Fixed::operator*(const Fixed &other) {
+	return Fixed(this->toFloat() * other.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed &other) {
+	return Fixed(this->toFloat() / other.toFloat());
+}
+
+//incremen && decrement operator
+Fixed &Fixed::operator++(void) {
+	(this->_value)++;
+	return *this;
+}
+
+Fixed &Fixed::operator--(void) {
+	(this->_value)--;
+	return *this;
+}
+
+Fixed Fixed::operator++(int) {
+	Fixed f(*this);
+	++(*this);
+	return f;
+}
+
+Fixed Fixed::operator--(int) {
+	Fixed f(*this);
+	--(*this);
+	return f;
+}
+
+//other function
 int Fixed::getRawBits(void) const {
 	std::cout << "getRawBits member function called" << std::endl;
 	return _value;
@@ -62,4 +130,32 @@ std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
 {
 	out << fixed.toFloat();
 	return out;
+}
+
+Fixed &Fixed::min(Fixed &f1, Fixed &f2) {
+	if (f1.toFloat() < f2.toFloat())
+		return f1;
+	else
+		return f2;
+}
+
+const Fixed &Fixed::min(const Fixed &f1, const Fixed &f2) {
+	if (f1.toFloat() < f2.toFloat())
+		return f1;
+	else
+		return f2;
+}
+
+Fixed &Fixed::max(Fixed &f1, Fixed &f2) {
+	if (f1.toFloat() < f2.toFloat())
+		return f2;
+	else
+		return f1;
+}
+
+const Fixed &Fixed::max(const Fixed &f1, const Fixed &f2) {
+	if (f1.toFloat() < f2.toFloat())
+		return f2;
+	else
+		return f1;
 }
