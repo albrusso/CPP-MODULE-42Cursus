@@ -6,7 +6,7 @@
 /*   By: albrusso <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 13:16:04 by albrusso          #+#    #+#             */
-/*   Updated: 2024/04/17 12:06:51 by albrusso         ###   ########.fr       */
+/*   Updated: 2024/04/18 12:14:47 by albrusso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Fixed {
 private:
 	int	_value;
-	static const int	_fractBit;
+	static const int	_fractBit = 8;
 public:
 	Fixed();
 	Fixed(const Fixed &other);
